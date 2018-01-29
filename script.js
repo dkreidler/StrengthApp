@@ -1,33 +1,83 @@
-//function getUserName() {
-//var nameField = document.getElementById('nameField').value;
-//var result = document.getElementById('result');
- //   result.textContent = 'Your username is: ' + nameField;
- //alert(nameField);
-//}
-//}
-// var subButton = document.getElementById('subButton');
-// subButton.addEventListener('click', getUserName, false);
-var subButton = document.getElementById('subButton');
-subButton.addEventListener('click', calc1RM, false);
+//variable declaration
+var $userName = $('#nameField');
+var $squatField = $('#squatField');
+var $squat1RMTable = $('#squat1RMTable');
+var $benchField = $('#benchField');
+var $bench1RMTable =$('#bench1RMTable');
+var $deadliftField = $('#deadliftField');
+var $deadlift1RMTable =$('#deadlift1RMTable');
+var $total1RMTable =$('#total1RMTable');
+var $nameDisplay = $('[data-user-display]');
+var $subButton = $('[data-submit]');
 
-function calc1RM() {
-  // var nameField = document.getElementById('nameField').value;
-  var userName = document.getElementbyId('nameField').value;
-  var squatField = document.getElementById('squatField').value;
-  var deadliftField = document.getElementById('deadliftField').value;
-  var benchField = document.getElementById('benchField').value;
-  var squatResult = document.getElementById('squatResult');
-  var squat1RMTable = document.getElementById('squat1RMTable');
-  var deadlift1RMTable = document.getElementById('deadlift1RMTable');
-  var bench1RMTable = document.getElementById('bench1RMTable');
-  var total1RMTable = document.getElementById('total1RMTable');
-  if(benchField != 0 && squatField != 0 && deadliftField != 0) {
-	squatResult.textContent = 'Your calculated 1RM is ' + parseInt(squatField) * 3;
-  squat1RMTable.textContent = parseInt(squatField) * 3;
-  deadlift1RMTable.textContent = parseInt(deadliftField) * 3;
-  bench1RMTable.textContent = parseInt(benchField) * 3;
-  total1RMTable.textContent = ((parseInt(squatField) + parseInt(deadliftField) + parseInt(benchField)) * 3) ;
-		} else {
-			squatResult.textContent = "We're glad you're here. Keep working. It'll pay off."
-		}
-  };
+//data model for storing goodies
+var dataModel = {
+  user: {
+    name: "Blank"
+  },
+
+  reps: [
+  ]
+};
+
+//event declarations
+$subButton.click(calc1RMs);
+
+//function calls
+function calc1RMs(e) {
+  e.preventDefault();
+
+  //store the username
+  dataModel.user.name = $userName.val();
+  
+  //create temporary new entry for this calculation
+  var newEntry = {};
+  newEntry.squat = squatCalc1RM();
+  newEntry.bench = benchCalc1RM();
+  newEntry.deadlift = deadliftCalc1RM();
+  newEntry.total = totalCalc1RM();
+
+  //append this entry to the list (array) of reps in the model
+  dataModel.reps.push(newEntry);
+
+  //inform the render it's services are needed
+  render();
+}
+
+
+//reads from the Model and updates the DOM
+function render() {
+  //user name
+  $nameDisplay.html(dataModel.user.name);
+
+  //squat and bench (and others)
+  $squat1RMTable.html(dataModel.reps[0].squat);  
+  $bench1RMTable.html(dataModel.reps[0].bench);
+  $deadlift1RMTable.html(dataModel.reps[0].deadlift);
+  $total1RMTable.html(dataModel.reps[0].total);  
+
+}
+
+//capture the values (perform any mutations) and return them
+function squatCalc1RM(e) {
+  return $squatField.val();
+}
+
+//capture the values (perform any mutations) and return them
+function benchCalc1RM(e) {
+  return $benchField.val();
+}
+
+//capture the values (perform any mutations) and return them
+function deadliftCalc1RM(e) {
+  return $deadliftField.val();
+}
+
+//capture the values (perform any mutations) and return them
+function totalCalc1RM(e) {
+  var bench = $('#benchField').val();
+  var squat =$('#squatField').val();
+  var deadlift =$('#deadliftField').val();
+
+  return parseInt(bench) + parseInt(squat) + parseInt(deadlift);
+}
