@@ -5,60 +5,64 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Sad gains</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Latest compiled JQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="gainz.css">   
-
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <!-- Local style sheet -->
+  <link rel="stylesheet" href="gainz.css">   
 </head>
+
 <body>
     <div class="container">
-
-        <form>
-          <div class="form-group">
-           <label id="userName">Name:</label>
-           <input id='nameField' type='text' maxlength='25'></input></div>
-           <div class="form-group"><label id="squatWeight">Squat:</label>
-           <input id="squatField" type="number" step="5"></input></div>
-           <div class="form-group"><label id="benchWeight">Bench:</label>
-           <input id="benchField" type="number" step="5"></input></div>
-           <div class="form-group"><label id="deadliftWeight">Deadlift:</label>
-           <input id="deadliftField" type="number" step ="5"></input></div>
-            <div class="form-group"><button data-submit type="submit" class="btn btn-success" id="subButton">Submit Form</button></div>
-          </div>
-        </form>
+      <form>
+        <div class="form-group">
+        <label id="userName">Name:</label>
+        <input id='nameField' type='text' maxlength='25'></input></div>
+        <div class="form-group"><label id="squatWeight">Squat:</label>
+        <input id="squatField" type="number" step="5"></input></div>
+        <div class="form-group"><label id="benchWeight">Bench:</label>
+        <input id="benchField" type="number" step="5"></input></div>
+        <div class="form-group"><label id="deadliftWeight">Deadlift:</label>
+        <input id="deadliftField" type="number" step ="5"></input></div>
+        <div class="form-group"><button data-submit type="submit" class="btn btn-success" id="subButton">Submit Form</button></div>
         </div>
-        <div>
-          <p id="result"></p>
-        </div>
-        <div class="container">
-          <table class="table table-hover table-dark">
-          <thead>
-            <tr>
-            <th scope="col" data-user-display></th>
-            <th scope="col">Squat</th>
-            <th scope="col">Deadlift</th>
-            <th scope="col">Bench</th>
-            <th scope="col">Total</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr><td>1RM</td>
-            <td id="squat1RMTable"></td>
-            <td id="deadlift1RMTable"></td>
-            <td id="bench1RMTable"></td>
-            <td id="total1RMTable"></td>
-            </tr>
-          </tbody>
-        </table>
-          </div>
-        
-          <script src="script.js"></script>
+      </form>
+    </div>
+    <div>
+      <p id="result"></p>
+    </div>
+    <div class="container">
+      <table class="table table-hover table-striped table-dark table-sm">
+        <thead>
+          <tr>
+           <th scope="col" data-user-display></th>
+           <th scope="col">Squat</th>
+           <th scope="col">Deadlift</th>
+           <th scope="col">Bench</th>
+           <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr><th scope="row">1RM</th>
+          <td id="squat1RMTable"></td>
+          <td id="deadlift1RMTable"></td>
+          <td id="bench1RMTable"></td>
+          <td id="total1RMTable"></td>
+         </tr>
+         <tr><th scope="row">2RM</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+         </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <script src="script.js"></script>
         
           
 </body>
