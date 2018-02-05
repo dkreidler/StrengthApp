@@ -1,5 +1,5 @@
 //variable declaration
-var $userName = $('#nameField');
+// var $userName = $('#nameField');
 var $squatField = $('#squatField');
 var $squat2RMTable = $('#squat2RMTable');
 var $benchField = $('#benchField');
@@ -7,18 +7,18 @@ var $bench2RMTable =$('#bench2RMTable');
 var $deadliftField = $('#deadliftField');
 var $deadlift2RMTable =$('#deadlift2RMTable');
 var $total2RMTable =$('#total2RMTable');
-var $nameDisplay = $('[data-user-display]');
+// var $nameDisplay = $('[data-user-display]');
 var $subButton = $('[data-submit]');
 
-//data model for storing goodies
-var dataModel = {
-  user: {
-    name: "Blank"
-  },
-
-  reps2: [
-  ]
-};
+// data model for storing goodies
+// var dataModel = {
+//  user: {
+//    name: "Blank"
+//  },
+//
+//  reps2: [
+//  ]
+// };
 
 //event declarations
 $subButton.click(calc2RMs);
@@ -61,19 +61,19 @@ function render() {
 //capture the squat values (perform any mutations) and return them
 
 function squatCalc2RM(e) {
-  return $squatField.val()*0.92;
+  return $squatField.val(); //*0.92;
 }
 
 //capture the deadlift values (perform any mutations) and return them
 
 function deadliftCalc2RM(e) {
-  return $deadliftField.val()*0.92;
+  return $deadliftField.val(); // *0.92;
 }
 
 //capture the bench values (perform any mutations) and return them
 
 function benchCalc2RM(e) {
-  return $benchField.val()*0.92;
+  return $benchField.val(); // *0.92;
 }
 
 
@@ -84,5 +84,5 @@ function totalCalc2RM(e) {
   var squat =$('#squatField').val();
   var deadlift =$('#deadliftField').val();
 
-  return (parseInt(bench) + parseInt(squat) + parseInt(deadlift))*0.92;
+  return (parseInt(bench) + parseInt(squat) + parseInt(deadlift));// *0.92;
 }
