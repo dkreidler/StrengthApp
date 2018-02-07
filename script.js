@@ -53,7 +53,7 @@ function calc1RMs(e) {
   dataModel.reps1.push(newEntry);
 
   //inform the render it's services are needed
-  render();
+  // render();
 }
 function calc2RMs(e) {
   e.preventDefault();
@@ -108,7 +108,9 @@ function deadliftCalc1RM(e) {
 }
 
 function deadliftCalc2RM(e) {
-  return $deadliftField.val(); // *0.92;
+  var deadlift2RM =$('#deadliftField').val();
+
+  return parseInt(deadlift2RM) * 0.92;
 }
 
 //capture the bench values (perform any mutations) and return them
