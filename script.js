@@ -1,18 +1,18 @@
 //variable declarations
-var $userName = $('#nameField');
-var $squatField = $('#squatField');
-var $squat1RMTable = $('#squat1RMTable');
-var $squat2RMTable = $('#squat2RMTable');
-var $benchField = $('#benchField');
+var $userName =$('#nameField');
+var $squatField =$('#squatField');
+var $squat1RMTable =$('#squat1RMTable');
+var $squat2RMTable =$('#squat2RMTable');
+var $benchField =$('#benchField');
 var $bench1RMTable =$('#bench1RMTable');
 var $bench2RMTable =$('#bench2RMTable');
-var $deadliftField = $('#deadliftField');
+var $deadliftField =$('#deadliftField');
 var $deadlift1RMTable =$('#deadlift1RMTable');
 var $deadlift2RMTable =$('#deadlift2RMTable');
 var $total1RMTable =$('#total1RMTable');
 var $total2RMTable =$('#total2RMTable');
-var $nameDisplay = $('[data-user-display]');
-var $subButton = $('[data-submit]');
+var $nameDisplay =$('[data-user-display]');
+var $subButton =$('[data-submit]');
 
 //data model for storing goodies
 var dataModel = {
@@ -40,10 +40,10 @@ function calc1RMs(e) {
   
   //create temporary new entry for this calculation
   var newEntry = {};
-  newEntry.squat = squatCalc1RM();
-  newEntry.bench = benchCalc1RM();
-  newEntry.deadlift = deadliftCalc1RM();
-  newEntry.total = totalCalc1RM();
+  newEntry.squat1 = squatCalc1RM();
+  newEntry.bench1 = benchCalc1RM();
+  newEntry.deadlift1 = deadliftCalc1RM();
+  newEntry.total1 = totalCalc1RM();
   // newEntry.squat2 = squatCalc2RM(); // I bet you anything this ain't working
   // newEntry.bench2 = benchCalc2RM(); // I bet you anything this ain't working
   // newEntry.deadlift2 = deadliftCalc2RM(); // I bet you anything this ain't working
@@ -63,10 +63,10 @@ function calc2RMs(e) {
   
   //create temporary new entry for this calculation
   var newEntry = {};
-  newEntry.squat = squatCalc2RM();
-  newEntry.bench = benchCalc2RM();
-  newEntry.deadlift = deadliftCalc2RM();
-  newEntry.total = totalCalc2RM();
+  newEntry.squat2 = squatCalc2RM();
+  newEntry.bench2 = benchCalc2RM();
+  newEntry.deadlift2 = deadliftCalc2RM();
+  newEntry.total2 = totalCalc2RM();
   
   //append this entry to the list (array) of reps in the model
   dataModel.reps2.push(newEntry);
@@ -82,14 +82,14 @@ function render() {
   $nameDisplay.html(dataModel.user.name);
 
   //squat and bench (and others)
-  $squat1RMTable.html(dataModel.reps1[0].squat);  
-  $bench1RMTable.html(dataModel.reps1[0].bench);
-  $deadlift1RMTable.html(dataModel.reps1[0].deadlift);
-  $total1RMTable.html(dataModel.reps1[0].total);  
-  $squat2RMTable.html(dataModel.reps2[0].squat);  
-  $bench2RMTable.html(dataModel.reps2[0].bench);
-  $deadlift2RMTable.html(dataModel.reps2[0].deadlift);
-  $total2RMTable.html(dataModel.reps2[0].total);  
+  $squat1RMTable.html(dataModel.reps1[0].squat1);  
+  $bench1RMTable.html(dataModel.reps1[0].bench1);
+  $deadlift1RMTable.html(dataModel.reps1[0].deadlift1);
+  $total1RMTable.html(dataModel.reps1[0].total1);  
+  $squat2RMTable.html(dataModel.reps2[0].squat2);  
+  $bench2RMTable.html(dataModel.reps2[0].bench2);
+  $deadlift2RMTable.html(dataModel.reps2[0].deadlift2);
+  $total2RMTable.html(dataModel.reps2[0].total2);  
 
 }
 
